@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Beasify - Cari Beasiswa</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,900;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Urbanist:ital,wght@0,900;1,900&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- CSS Beasify -->
+    <link href="assets/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- HEADER / NAVBAR -->
+    <header class="header-nav-bg">
+        <nav class="navbar">
+            <div class="container d-flex justify-content-between align-items-center">
+                <a class="navbar-logo" href="/">
+                    <img src="assets/gambar/Logo beasify.svg" alt="Logo Beasify" class="logo">
+                </a>
+
+                <p class="body mb-0 nav-text">Tentang Kami</p>
+            </div>
+        </nav>
+    </header>
+    <!-- MAIN CONTENT -->
+    <div class="container card-custom d-flex justify-content-center align-items-center min-vh-100">
+        <div class="card login-card p-4 p-md-5 shadow-lg border-0">
+            <div class="card-body text-center">
+
+                <!-- Judul -->
+                <h1 class="login-title fw-bold mb-4">
+                    Login sebagai <span>Sobat Beasify</span>
+                </h1>
+
+                <!-- Form Login -->
+                <form action="#" method="POST">
+                    <div class="mb-3">
+                        <input type="email" class="form-control custom-input" placeholder="Email" required>
+                    </div>
+
+                    <div class="mb-2">
+                        <input type="password" class="form-control custom-input" placeholder="Password" required>
+                    </div>
+
+                    <div class="text-end mb-4">
+                        <a href="#" class="forgot-link text-decoration-none">Forgot Password</a>
+                    </div>
+
+                    <!-- Tombol Login -->
+                    <div class="d-grid col-8 mx-auto mb-3">
+                        <button type="submit" class="btn btn-login py-2 fw-semibold">
+                            Login
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Pembatas OR -->
+                <div class="d-flex align-items-center my-3">
+                    <hr class="flex-grow-1 custom-line">
+                    <span class="px-3 small fw-semibold custom-divider-text">OR</span>
+                    <hr class="flex-grow-1 custom-line">
+                </div>
+
+                <!-- Tombol Login Google -->
+                <div class="d-grid mb-4">
+                    <button type="button" class="btn btn-google py-2 fw-semibold">
+                        Login with Google
+                    </button>
+                </div>
+
+                <!-- Link Registrasi -->
+                <p class="register-text mb-0">
+                    Belum menjadi Sobat Beasify?<br>
+                    <a href="register.html" class="Registrasi-sekarang-text">Registrasi Sekarang</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer custom-footer py-4 mt-5">
+        <div class="container text-center">
+            <p class="footer-text mb-0">
+                © 2026 Beasify. Platform Informasi
+                & Pendaftaran Beasiswa Terpadu.
+            </p>
+        </div>
+    </footer>
+</body>
+
+</html>
