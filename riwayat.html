@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="id">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Beasify - Riwayat Apply</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap CSS & Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- CSS Beasify -->
+    <link href="assets/style.css" rel="stylesheet">
+</head>
+
+<body class="riwayat-body">
+    <!-- HEADER / NAVBAR -->
+    <header class="header-nav-bg">
+        <nav class="navbar p-0">
+            <div class="container d-flex justify-content-between align-items-center position-relative header-inner">
+                <button class="navbar-toggler custom-hamburger border-0 shadow-none z-2" type="button"
+                    data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu"
+                    aria-label="Buka Menu Navigasi">
+                </button>
+
+                <a class="navbar-logo position-absolute start-50 translate-middle-x" href="beranda.html">
+                    <img src="assets/gambar/Logo beasify.svg" alt="Logo Beasify" class="logo">
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- SIDEBAR MENU (OFFCANVAS) -->
+    <div class="offcanvas offcanvas-start custom-sidebar-menu" tabindex="-1" id="sidebarMenu"
+        aria-labelledby="sidebarMenuLabel">
+        <div class="offcanvas-header px-4 pt-4 pb-2">
+            <h5 class="visually-hidden" id="sidebarMenuLabel">Menu Navigasi Beasify</h5>
+            <button type="button" class="btn-close-sidebar" data-bs-dismiss="offcanvas" aria-label="Tutup Menu">
+                <i class="bi bi-x-lg"></i>
+            </button>
+        </div>
+
+        <div class="offcanvas-body px-4 pt-4">
+            <nav class="d-flex flex-column gap-2">
+                <a href="beranda.html" class="sidebar-nav-btn">Beranda</a>
+                <a href="bookmark.html" class="sidebar-nav-btn">Bookmark</a>
+                <a href="riwayat.html" class="sidebar-nav-btn active">Riwayat Apply</a>
+                <a href="profile.html" class="sidebar-nav-btn">Profil</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main class="riwayat-main py-4">
+        <div class="riwayat-container">
+
+            <!-- SEARCH BAR -->
+            <section class="riwayat-search-wrap mb-3" aria-label="Pencarian Riwayat Beasiswa">
+                <div class="d-flex align-items-center gap-2 gap-sm-3">
+                    <div class="flex-grow-1">
+                        <input type="search" id="riwayatSearchInput" class="form-control riwayat-search-input"
+                            placeholder="Cari Program Beasiswa" aria-label="Cari Program Beasiswa">
+                    </div>
+                    <button type="button" id="riwayatSearchButton" class="riwayat-search-btn"
+                        aria-label="Cari Program Beasiswa">
+                        <i class="bi bi-search"></i>
+                    </button>
+                </div>
+            </section>
+
+            <!-- FILTER PILLS -->
+            <section class="riwayat-pills-wrap mb-4" aria-label="Filter Status Riwayat Apply">
+                <div class="d-flex flex-wrap gap-2" id="riwayatFilterPills" role="group"
+                    aria-label="Status Pengajuan Beasiswa">
+                    <button type="button" class="riwayat-pill is-active" data-status-filter="semua"
+                        aria-pressed="true">Semua</button>
+                    <button type="button" class="riwayat-pill" data-status-filter="dalam-proses"
+                        aria-pressed="false">Dalam Proses</button>
+                    <button type="button" class="riwayat-pill" data-status-filter="lolos"
+                        aria-pressed="false">Lolos</button>
+                    <button type="button" class="riwayat-pill" data-status-filter="tidak-lolos"
+                        aria-pressed="false">Tidak Lolos</button>
+                </div>
+            </section>
+
+            <!-- JUDUL HALAMAN -->
+            <div class="mb-3">
+                <h1 class="riwayat-page-title mb-0">Riwayat Apply</h1>
+            </div>
+
+            <!-- GRID KARTU RIWAYAT APPLY -->
+            <div class="row g-3 g-md-4" id="riwayatListContainer">
+                <!-- Dirender secara dinamis oleh initRiwayatApplyPage() di assets/main.js -->
+            </div>
+
+            <!-- EMPTY STATE -->
+            <div id="riwayatEmptyState" class="riwayat-empty-box text-center d-none mt-4">
+                <div class="riwayat-empty-icon mb-2">
+                    <i class="bi bi-folder2-open"></i>
+                </div>
+                <h2 class="riwayat-empty-title mb-2" id="riwayatEmptyTitle">Belum Ada Riwayat Apply</h2>
+                <p class="riwayat-empty-desc mb-3" id="riwayatEmptyDesc">
+                    Tidak ada riwayat pengajuan beasiswa yang sesuai dengan pencarian atau filter status.
+                </p>
+                <button type="button" id="riwayatResetBtn" class="btn riwayat-reset-btn">
+                    Tampilkan Semua Riwayat
+                </button>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- TOAST NOTIFIKASI -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 1080;">
+        <div id="actionToast" class="toast align-items-center border-0" role="alert" aria-live="assertive"
+            aria-atomic="true"
+            style="background-color: var(--secondary-color); color: var(--primary-color); border-radius: 14px;">
+            <div class="d-flex">
+                <div class="toast-body" id="actionToastBody"
+                    style="font-family: var(--font-plus-jakarta); font-size: 13px;">
+                    Riwayat diperbarui!
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                    aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer custom-footer py-4 mt-5"
+        style="position: fixed; bottom: 0; left: 0; width: 100%; z-index: 1030; margin-top: 0 !important;">
+        <div class="container text-center">
+            <p class="footer-text mb-0">
+                © 2026 Beasify. Platform Informasi & Pendaftaran Beasiswa Terpadu.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JS Beasify -->
+    <script src="assets/main.js"></script>
+</body>
+
+</html>

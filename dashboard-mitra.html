@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="id">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Beasify - Dashboard Mitra</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap CSS & Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- CSS Beasify -->
+    <link href="assets/style.css" rel="stylesheet">
+</head>
+
+<body class="mitra-body">
+    <!-- HEADER / NAVBAR -->
+    <header class="header-nav-bg">
+        <nav class="navbar p-0">
+            <div class="container d-flex justify-content-between align-items-center position-relative header-inner">
+                <button class="navbar-toggler custom-hamburger border-0 shadow-none z-2" type="button"
+                    data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu"
+                    aria-label="Buka Menu Navigasi">
+                </button>
+
+                <a class="navbar-logo position-absolute start-50 translate-middle-x">
+                    <img src="assets/gambar/Logo beasify.svg" alt="Logo Beasify" class="logo">
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- SIDEBAR MENU MITRA (HANYA 2 MENU: DASHBOARD MITRA & PROFIL) -->
+    <div class="offcanvas offcanvas-start custom-sidebar-menu" tabindex="-1" id="sidebarMenu"
+        aria-labelledby="sidebarMenuLabel">
+        <div class="offcanvas-header px-4 pt-4 pb-2">
+            <h5 class="visually-hidden" id="sidebarMenuLabel">Menu Navigasi Mitra Beasify</h5>
+            <button type="button" class="btn-close-sidebar" data-bs-dismiss="offcanvas" aria-label="Tutup Menu">
+                <i class="bi bi-x-lg"></i>
+            </button>
+        </div>
+
+        <div class="offcanvas-body px-4 pt-4">
+            <nav class="d-flex flex-column gap-2">
+                <a href="dashboard-mitra.html" id="navDashboardMitra" class="sidebar-nav-btn active">Dashboard Mitra</a>
+                <a href="profile-mitra.html" id="navProfilMitra" class="sidebar-nav-btn">Profil</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main class="mitra-main py-4">
+        <div class="mitra-container">
+
+            <!-- VIEW 1: DASHBOARD MITRA -->
+            <section id="mitraDashboardView" aria-labelledby="mitraDashboardHeading">
+                <div class="mb-4">
+                    <h1 id="mitraDashboardHeading" class="mitra-heading mb-1">
+                        Dashboard <span>Mitra</span>
+                    </h1>
+                    <p id="mitraWelcomeText" class="mitra-welcome mb-0">
+                        Selamat Datang, <span>Instansi Kalla Jusuf</span>
+                    </p>
+                </div>
+
+                <!-- RINGKASAN PROGRAM BEASISWA -->
+                <div class="mb-4">
+                    <h2 class="mitra-sub-heading mb-3">Ringkasan Program Beasiswa</h2>
+                    <div class="row g-3">
+                        <div class="col-6">
+                            <div class="mitra-stat-card h-100 d-flex justify-content-between align-items-center">
+                                <div>
+                                    <div class="mitra-stat-label">Program Aktif</div>
+                                    <div class="mitra-stat-value">
+                                        <span id="mitraActiveCount">01</span>
+                                        <small>Program</small>
+                                    </div>
+                                    <div class="mitra-stat-sub" id="mitraEndedCountText">0 Disudahi</div>
+                                </div>
+                                <i class="bi bi-mortarboard mitra-stat-icon" aria-hidden="true"></i>
+                            </div>
+                        </div>
+
+                        <div class="col-6">
+                            <div class="mitra-stat-card h-100 d-flex justify-content-between align-items-center">
+                                <div>
+                                    <div class="mitra-stat-label">Total View</div>
+                                    <div class="mitra-stat-value">
+                                        <span id="mitraTotalViews">500</span>
+                                        <small>Dilihat</small>
+                                    </div>
+                                </div>
+                                <i class="bi bi-eye mitra-stat-icon" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DAFTAR PROGRAM BEASISWA MITRA -->
+                <div>
+                    <h2 class="mitra-sub-heading mb-3">Daftar Program Beasiswa</h2>
+                    <div class="row g-3" id="mitraProgramList"></div>
+                </div>
+
+                <!-- TOMBOL FLOATING TAMBAH PROGRAM BARU -->
+                <div class="mitra-fab-wrap">
+                    <button type="button" id="openCreateProgramBtn" class="btn-mitra-fab">
+                        <i class="bi bi-plus-circle"></i>
+                        <span>Tambah Program Baru</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- VIEW 2: FORM DETAIL & PUBLIKASI PROGRAM BEASISWA -->
+            <section id="mitraFormView" class="d-none" aria-labelledby="mitraFormHeading">
+                <div class="mb-3">
+                    <button type="button" id="backToDashboardBtn" class="btn-back-link border-0 bg-transparent p-0">
+                        <i class="bi bi-chevron-left"></i>
+                        <span>Kembali</span>
+                    </button>
+                </div>
+
+                <div class="mitra-form-card">
+                    <div class="mb-2">
+                        <span class="badge-verification-step">Tahap Publikasi Program</span>
+                    </div>
+
+                    <h1 id="mitraFormHeading" class="mitra-form-title mb-4">Detail Program Beasiswa</h1>
+
+                    <form id="mitraProgramForm" novalidate>
+                        <input type="hidden" id="programEditId" value="">
+
+                        <!-- Nama Program Beasiswa -->
+                        <div class="mb-3">
+                            <label for="programName" class="mitra-label">
+                                Nama Program Beasiswa <span class="req-star">*</span>
+                            </label>
+                            <input type="text" id="programName" name="programName" class="form-control mitra-input"
+                                placeholder="Nama Program" required>
+                        </div>
+
+                        <!-- Jenjang Pendidikan & Tipe Pendanaan -->
+                        <div class="row g-3 mb-3">
+                            <div class="col-6">
+                                <label for="programLevel" class="mitra-label">
+                                    Jenjang Pendidikan <span class="req-star">*</span>
+                                </label>
+                                <select id="programLevel" name="programLevel" class="form-select mitra-select" required>
+                                    <option value="">Jenjang</option>
+                                    <option value="SMA/SMK">SMA / SMK</option>
+                                    <option value="D3">D3</option>
+                                    <option value="D4">D4</option>
+                                    <option value="S1">S1</option>
+                                    <option value="S2">S2</option>
+                                    <option value="S3">S3</option>
+                                </select>
+                            </div>
+
+                            <div class="col-6">
+                                <label for="programFunding" class="mitra-label">
+                                    Tipe Pendanaan <span class="req-star">*</span>
+                                </label>
+                                <select id="programFunding" name="programFunding" class="form-select mitra-select"
+                                    required>
+                                    <option value="">Pendanaan</option>
+                                    <option value="Fully Funded">Fully Funded</option>
+                                    <option value="Partial Funded">Partial Funded</option>
+                                    <option value="Non-Funded">Non-Funded</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Banner Program -->
+                        <div class="mb-3">
+                            <label for="programBannerFile" class="mitra-label">Banner Program</label>
+                            <div class="mitra-upload-box">
+                                <span id="programBannerLabel" class="mitra-upload-text">Belum ada gambar dipilih</span>
+                                <label for="programBannerFile" class="btn-mitra-upload mb-0">
+                                    Unggah Gambar
+                                </label>
+                                <input type="file" id="programBannerFile" accept="image/*" class="d-none">
+                            </div>
+                            <div id="programBannerPreviewWrap" class="mt-2 d-none">
+                                <img id="programBannerPreviewImg" src="" alt="Pratinjau Banner Program"
+                                    class="mitra-banner-preview">
+                            </div>
+                        </div>
+
+                        <!-- Tentang Program -->
+                        <div class="mb-3">
+                            <label for="programDescription" class="mitra-label">
+                                Tentang Program <span class="req-star">*</span>
+                            </label>
+                            <textarea id="programDescription" name="programDescription" rows="3"
+                                class="form-control mitra-textarea" placeholder="Deskripsi Program" required></textarea>
+                        </div>
+
+                        <!-- Jadwal & Ketentuan -->
+                        <div class="mb-3">
+                            <label class="mitra-label">
+                                Jadwal &amp; Ketentuan <span class="req-star">*</span>
+                            </label>
+
+                            <div class="row g-3 mb-3">
+                                <div class="col-6">
+                                    <label for="programDeadline" class="visually-hidden">Jadwal Penutupan</label>
+                                    <input type="date" id="programDeadline" name="programDeadline"
+                                        class="form-control mitra-input" required>
+                                </div>
+
+                                <div class="col-6">
+                                    <label for="programRegion" class="visually-hidden">Cakupan Wilayah</label>
+                                    <select id="programRegion" name="programRegion" class="form-select mitra-select"
+                                        required>
+                                        <option value="">Cakupan Wilayah</option>
+                                        <option value="Nasional">Nasional</option>
+                                        <option value="Sulawesi Selatan">Sulawesi Selatan</option>
+                                        <option value="Jabodetabek">Jabodetabek</option>
+                                        <option value="Jawa">Jawa</option>
+                                        <option value="Internasional">Internasional</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row g-3">
+                                <div class="col-6">
+                                    <label for="programMinGpa" class="visually-hidden">Minimal IPK</label>
+                                    <select id="programMinGpa" name="programMinGpa" class="form-select mitra-select"
+                                        required>
+                                        <option value="">IPK</option>
+                                        <option value="Min. IPK 3.00">Min. IPK 3.00</option>
+                                        <option value="Min. IPK 3.25">Min. IPK 3.25</option>
+                                        <option value="Min. IPK 3.50">Min. IPK 3.50</option>
+                                        <option value="Tanpa Syarat IPK">Tanpa Syarat IPK</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Benefit Beasiswa Dinamis -->
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <label class="mitra-label mb-0">
+                                    Benefit Beasiswa <span class="req-star">*</span>
+                                </label>
+                                <button type="button" id="addBenefitBtn" class="btn-add-benefit">
+                                    +Tambah Benefit
+                                </button>
+                            </div>
+
+                            <div id="benefitRowsContainer" class="d-flex flex-column gap-2"></div>
+                        </div>
+
+                        <!-- Kuota Penerima & Link Pendaftaran Resmi -->
+                        <div class="row g-3 mb-4">
+                            <div class="col-12 col-sm-5">
+                                <label for="programQuota" class="mitra-label">
+                                    Kuota Penerima <span class="req-star">*</span>
+                                </label>
+                                <input type="number" id="programQuota" name="programQuota" min="1"
+                                    class="form-control mitra-input" placeholder="Contoh: 25" required>
+                            </div>
+
+                            <div class="col-12 col-sm-7">
+                                <label for="programOfficialUrl" class="mitra-label">
+                                    Link Pendaftaran Resmi <span class="req-star">*</span>
+                                </label>
+                                <input type="url" id="programOfficialUrl" name="programOfficialUrl"
+                                    class="form-control mitra-input" placeholder="https://contoh.ac.id/beasiswa"
+                                    required>
+                            </div>
+                        </div>
+
+                        <!-- Tombol Publish -->
+                        <div class="text-center pt-2">
+                            <button type="submit" id="publishProgramBtn" class="btn-publish-program">
+                                Publish Program
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- MODAL DAFTAR PELAMAR -->
+    <div class="modal fade" id="applicantsModal" tabindex="-1" aria-labelledby="applicantsModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content filter-modal">
+                <div class="modal-header">
+                    <div>
+                        <h5 class="modal-title" id="applicantsModalLabel">Daftar Pelamar</h5>
+                        <p class="filter-subtitle mb-0" id="applicantsProgramName">Program Beasiswa</p>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+                </div>
+                <div class="modal-body" id="applicantsModalBody"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Tutup</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFIKASI -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 1080;">
+        <div id="actionToast" class="toast align-items-center border-0" role="alert" aria-live="assertive"
+            aria-atomic="true"
+            style="background-color: var(--secondary-color); color: var(--primary-color); border-radius: 14px;">
+            <div class="d-flex">
+                <div class="toast-body" id="actionToastBody"
+                    style="font-family: var(--font-plus-jakarta); font-size: 13px;">
+                    Perubahan tersimpan!
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                    aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer custom-footer py-4 mt-5">
+        <div class="container text-center">
+            <p class="footer-text mb-0">
+                © 2026 Beasify. Platform Informasi &amp; Pendaftaran Beasiswa Terpadu.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JS Beasify -->
+    <script src="assets/main.js"></script>
+</body>
+
+</html>
