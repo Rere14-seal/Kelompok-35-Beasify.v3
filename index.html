@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="id">
 
 <head>
     <meta charset="utf-8">
@@ -10,12 +10,8 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,900;1,900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@100..900&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Urbanist:ital,wght@0,900;1,900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Urbanist:ital,wght@0,100..900;1,900&display=swap"
         rel="stylesheet">
 
     <!-- Bootstrap CSS -->
@@ -32,19 +28,21 @@
         <nav class="navbar">
             <div class="container d-flex justify-content-between align-items-center">
                 <a class="navbar-logo" href="/">
-                    <img src="assets/gambar/Logo beasify.svg" alt="Logo Beasify" class="logo">
+                    <img src="assets/gambar/Logo beasify.svg" alt="Logo Beasify" class="logo" width="120" height="36"
+                        decoding="async">
                 </a>
 
                 <a href="#about" class="body mb-0 nav-text text-decoration-none">Tentang Kami</a>
             </div>
         </nav>
     </header>
+
     <main>
         <!-- HERO ILLUSTRATION -->
         <section class="hero p-0">
-
-            <div class="hero-illustration w=100">
-                <img src="assets/gambar/pict element landpage.svg" alt="Ilustrasi lulusan mahasiswa">
+            <div class="hero-illustration w-100">
+                <img src="assets/gambar/pict element landpage.svg" alt="Ilustrasi lulusan mahasiswa"
+                    class="img-fluid w-100" width="1440" height="500" fetchpriority="high" decoding="async">
             </div>
         </section>
 
@@ -79,7 +77,6 @@
             </div>
         </section>
 
-
         <!-- =========================
              4. WHY CHOOSE BEASIFY
         ========================== -->
@@ -106,19 +103,22 @@
 
                         <div class="col">
                             <div class="feature-card">
-                                <img src="assets/gambar/card cari progran.svg" alt="Cari Program" class="img-fluid">
+                                <img src="assets/gambar/card cari progran.svg" alt="Cari Program" class="img-fluid"
+                                    width="400" height="300" loading="lazy" decoding="async">
                             </div>
                         </div>
 
                         <div class="col">
                             <div class="feature-card">
-                                <img src="assets/gambar/card docu.svg" alt="Pemeriksaan Dokumen" class="img-fluid">
+                                <img src="assets/gambar/card docu.svg" alt="Pemeriksaan Dokumen" class="img-fluid"
+                                    width="400" height="300" loading="lazy" decoding="async">
                             </div>
                         </div>
 
                         <div class="col">
                             <div class="feature-card">
-                                <img src="assets/gambar/card up.svg" alt="Pendaftaran Beasiswa" class="img-fluid">
+                                <img src="assets/gambar/card up.svg" alt="Pendaftaran Beasiswa" class="img-fluid"
+                                    width="400" height="300" loading="lazy" decoding="async">
                             </div>
                         </div>
 
@@ -137,21 +137,22 @@
         <div class="container text-center">
             <p class="footer-text mb-0">
                 © 2026 Beasify. Platform Informasi
-                & Pendaftaran Beasiswa Terpadu.
+                &amp; Pendaftaran Beasiswa Terpadu.
             </p>
         </div>
     </footer>
+
     <!-- Vercel Speed Insights -->
     <script>
         window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
     </script>
     <script defer src="/_vercel/speed-insights/script.js"></script>
+
     <!-- Bootstrap JS Bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- JS Beasify -->
-    <script src="assets/main.js"></script>
-</body>
+    <script defer src="assets/main.js"></script>
 </body>
 
 </html>
